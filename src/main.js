@@ -1,20 +1,12 @@
 'use strict';
 
 const electron = require('electron');
-const { BrowserWindow, ipcMain, app } = electron;
+const { BrowserWindow, app } = electron;
+const filesController = require('./controllers/files.controller');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
-
-ipcMain.on('pick-directory', (event) => {
-    electron.dialog.showOpenDialog(win, {
-        properties: ['openDirectory']
-    }, (d) => {
-        event.sender.send('get-picked-directory', d[0]);
-    });
-});
-
 
 function createWindow() {
     // Create the browser window.
@@ -23,6 +15,9 @@ function createWindow() {
         height: 1000,
         width: 1880
     });
+
+    // init controllers to expose "server-side" functionality
+    filesController.init(win);
 
     win.openDevTools();
 
