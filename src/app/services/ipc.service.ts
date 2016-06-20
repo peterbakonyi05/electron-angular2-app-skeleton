@@ -1,15 +1,23 @@
-import { Injectable } from "@angular/core";
+import { Injectable, ApplicationRef } from "@angular/core";
 
 declare var require: any;
 const ipcRenderer = require('electron').ipcRenderer;
 
 @Injectable()
 export class IpcService {
+	constructor(private appRef: ApplicationRef) {
+	}
 
 	subscribe(channel: string, listener: (event: any, args: any) => void) {
-		ipcRenderer.on(channel, listener);
+		const wrappedListener = (event, args) => {
+			listener(event, args);
+			this.appRef.tick();
+		};
+		
+		ipcRenderer.on(channel, wrappedListener);
+
 		return () => {
-			ipcRenderer.removeListener(channel, listener);
+			ipcRenderer.removeListener(channel, wrappedListener);
 		};
 	}
 
