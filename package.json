@@ -9,7 +9,7 @@
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
     "electron": "electron src"
   },
-  "author": "Auth0",
+  "author": "Peter Bakonyi",
   "license": "MIT",
   "devDependencies": {
     "electron-prebuilt": "^1.2.0",
@@ -28,8 +28,12 @@
     "@angular/platform-browser": "2.0.0-rc.2",
     "@angular/platform-browser-dynamic": "2.0.0-rc.2",
     "@angular/router": "2.0.0-rc.2",
+    "@angular2-material/button": "^2.0.0-alpha.5-2",
+    "@angular2-material/core": "^2.0.0-alpha.5-2",
+    "@angular2-material/list": "^2.0.0-alpha.5-2",
     "electron": "^0.4.1",
     "es6-shim": "^0.35.0",
+    "lodash": "^4.13.1",
     "reflect-metadata": "0.1.3",
     "rxjs": "5.0.0-beta.6",
     "systemjs": "0.19.26",
