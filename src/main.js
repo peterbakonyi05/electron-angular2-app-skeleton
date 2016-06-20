@@ -1,20 +1,20 @@
 'use strict';
 
 const electron = require('electron');
-// Module to control application life.
-const { app } = electron;
-// Module to create native browser window.
-const { BrowserWindow } = electron;
-
-const {ipcMain} = require('electron');
-ipcMain.on('asynchronous-message', (event, arg) => {
-    console.log(arg);  // prints "ping"
-    event.sender.send('asynchronous-reply', 'pong');
-});
+const { BrowserWindow, ipcMain, app } = electron;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
+
+ipcMain.on('pick-directory', (event) => {
+    electron.dialog.showOpenDialog(win, {
+        properties: ['openDirectory']
+    }, (d) => {
+        event.sender.send('get-picked-directory', d[0]);
+    });
+});
+
 
 function createWindow() {
     // Create the browser window.
@@ -28,13 +28,6 @@ function createWindow() {
 
     // and load the index.html of the app.
     win.loadURL(`file://${__dirname}/index.html`);
-
-    // function selectDirectory() {
-    //     electron.dialog.showOpenDialog(win, {
-    //         properties: ['openDirectory']
-    //     }, (d) => {
-    //     })
-    // }
 
 
     // Emitted when the window is closed.

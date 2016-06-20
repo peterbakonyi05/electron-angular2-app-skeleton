@@ -1,24 +1,29 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { Component } from '@angular/core';
 
-declare var require: any;
-const ipcRenderer = require('electron').ipcRenderer;
+import { IpcService } from "./services/ipc.service";
 
-ipcRenderer.on('asynchronous-reply', (event, data) => {
-	console.log(data);
-});
 
 @Component({
 	selector: 'app',
+	providers: [
+		IpcService
+	],
 	template: `
-    <button (click)="sendMessage()">Send message</button>
-  `
+    	<button (click)="sendMessage()">Send message</button>
+    `
 })
 
 export class App {
 
+	constructor(private ipcService: IpcService) {
+		this.ipcService.subscribe("get-picked-directory", (e, directory) => {
+			console.log(directory);
+		});
+	}
+
 	sendMessage() {
-		ipcRenderer.send('asynchronous-message', 'ping');
+		this.ipcService.send('pick-directory');
 	}
 }
 
