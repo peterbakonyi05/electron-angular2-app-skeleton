@@ -41,6 +41,11 @@ module.exports = {
                 test: /\.html$/,
                 loader: 'raw-loader',
                 exclude: [/node_modules/]
+            },
+            {
+                test: /\.scss$/,
+                loader: 'raw-loader!sass-loader',
+                exclude: [/node_modules/]
             }
         ]
     },
@@ -59,7 +64,7 @@ module.exports = {
     ],
     plugins: [
         new CommonsChunkPlugin({ name: 'angular2', filename: 'angular2.js', minChunks: Infinity }),
-        new CommonsChunkPlugin({ name: 'common',   filename: 'common.js' })
+        new CommonsChunkPlugin({ name: 'common', filename: 'common.js' })
     ],
     target: 'node-webkit'
 };

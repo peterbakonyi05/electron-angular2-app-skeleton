@@ -12,7 +12,6 @@
 * 1 terminal tab: `npm run electron`
 
 ## Roadmap
-* add scss loader to webpack
 * add ngrx to frontend
 * add http example to front end
 * add environment specific config to webpack
