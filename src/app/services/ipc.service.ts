@@ -8,11 +8,11 @@ export class IpcService {
 	}
 
 	subscribe(channel: string, listener: (event: any, args: any) => void) {
-		const wrappedListener = (event, args) => {
+		const wrappedListener = (event: any, args: any) => {
 			listener(event, args);
 			this.appRef.tick();
 		};
-		
+
 		ipcRenderer.on(channel, wrappedListener);
 
 		return () => {

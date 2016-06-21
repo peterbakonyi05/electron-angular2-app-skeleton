@@ -3,4 +3,5 @@ node_modules
 build
 npm-debug.log
 .idea
-typings/*
+/typings
+/tsd_typings/

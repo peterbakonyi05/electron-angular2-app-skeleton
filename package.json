@@ -5,9 +5,13 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
+    "clean": "rimraf build",
+    "prebuild": "npm run clean",
     "build": "webpack --progress --profile --colors --display-error-details --display-cached",
+    "prewatch": "npm run clean",
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
-    "electron": "electron src"
+    "electron": "electron src",
+    "postinstall": "typings install"
   },
   "author": "Peter Bakonyi",
   "license": "MIT",
@@ -16,6 +20,7 @@
     "es6-shim": "^0.34.0",
     "node-sass": "^3.8.0",
     "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.2",
     "sass-loader": "^3.2.1",
     "ts-loader": "^0.8.2",
     "typescript": "^1.8.10",
