@@ -12,11 +12,10 @@
 * 1 terminal tab: `npm run electron`
 
 ## Roadmap
-* finish routing
-* add raw loader to be able to load html files
+* add scss loader to webpack
 * add ngrx to frontend
 * add http example to front end
-* use webpack 2.0 + add environment specific config
+* add environment specific config to webpack
 * support packaging
 * customize native menu
 * add translations
