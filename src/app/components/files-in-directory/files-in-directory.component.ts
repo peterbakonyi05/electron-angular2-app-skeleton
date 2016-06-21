@@ -10,18 +10,7 @@ import { IpcService } from '../../services/ipc.service';
 		MD_BUTTON_DIRECTIVES,
 		MD_LIST_DIRECTIVES
 	],
-	template: `
-		<div *ngIf="files.length">
-			<label>The directory contains the following items:</label>
-			<md-list >
-			   <md-list-item *ngFor="let fileName of files">{{fileName}}</md-list-item>
-			</md-list>
-		</div>
-    	<button 
-    		md-raised-button 
-    		(click)="pickDirectory()"
-		>Pick Directory</button>
-    `
+	template: require('./files-in-directory.component.html')
 })
 export class FilesInDirectoryComponent implements OnDestroy, OnInit {
 	files: string[] = [];
