@@ -10,7 +10,8 @@ import './rxjs-operators';
 
 import { IpcService } from "./services";
 
-import { FilesInDirectoryComponent, HomeComponent } from './components';
+import { FilesInDirectoryComponent } from './files-in-directory';
+import { HomeComponent } from './home';
 
 import { BOOKS_PROVIDERS, BookSearchPage } from './books';
 
