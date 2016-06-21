@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
+import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 
 import { IpcService } from '../../services/ipc.service';
@@ -8,6 +9,7 @@ import { IpcService } from '../../services/ipc.service';
 	selector: 'ea-files-in-directory',
 	directives: [
 		MD_BUTTON_DIRECTIVES,
+		MD_CARD_DIRECTIVES,
 		MD_LIST_DIRECTIVES
 	],
 	template: require('./files-in-directory.component.html')

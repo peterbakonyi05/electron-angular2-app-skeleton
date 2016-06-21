@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 
 @Component({
 	selector: 'ea-home',
-	template: `
-		<h1>Home component</h1>
-    `
+	directives: [
+		MD_CARD_DIRECTIVES
+	],
+	template: require('./home.component.html')
 })
 export class HomeComponent {
 }

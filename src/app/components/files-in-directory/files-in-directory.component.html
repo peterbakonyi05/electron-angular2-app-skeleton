@@ -1,10 +1,23 @@
-<div *ngIf="files.length">
-    <label>The directory contains the following items:</label>
-    <md-list >
-        <md-list-item *ngFor="let fileName of files">{{fileName}}</md-list-item>
-    </md-list>
-</div>
-<button
-        md-raised-button
-        (click)="pickDirectory()"
->Pick Directory</button>
+<md-card>
+    <md-card-subtitle>Angular2, Electron app</md-card-subtitle>
+    <md-card-title>Listing files from a directory</md-card-title>
+    <md-card-content>
+        <p *ngIf="!files.length">
+            Click on the button below and list the content of a directory on your computer.
+            It would be impossible in a classic web-based application due to security issues.
+        </p>
+        <div *ngIf="files.length">
+            <label>The directory contains the following items:</label>
+            <md-list>
+                <md-list-item *ngFor="let fileName of files">{{fileName}}</md-list-item>
+            </md-list>
+        </div>
+    </md-card-content>
+    <md-card-actions>
+        <button
+                md-raised-button
+                (click)="pickDirectory()"
+        >{{files.length ? "Pick Another Directory" : "Pick Directory"}}
+        </button>
+    </md-card-actions>
+</md-card>
