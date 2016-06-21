@@ -12,10 +12,9 @@
 * 1 terminal tab: `npm run electron`
 
 ## Roadmap
-* add ngrx to frontend
-* add http example to front end
 * add environment specific config to webpack
 * support packaging
+* add a more complex example using ngrx
 * customize native menu
 * add translations
 * add linting

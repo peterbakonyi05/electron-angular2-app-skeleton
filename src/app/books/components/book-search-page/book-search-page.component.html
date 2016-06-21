@@ -1,0 +1,8 @@
+<md-card>
+    <md-card-subtitle>Angular2, Electron app</md-card-subtitle>
+    <md-card-title>Search books in Google Books</md-card-title>
+    <md-card-content>
+        <ea-book-search (search)="search($event)"></ea-book-search>
+        <ea-book-list [books]="books"></ea-book-list>
+    </md-card-content>
+</md-card>

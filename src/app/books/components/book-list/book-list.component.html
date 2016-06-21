@@ -1,0 +1,6 @@
+<md-list>
+    <ea-book-preview *ngFor="let book of books"
+                     [book]="book"
+    ></ea-book-preview>
+    <p padding *ngIf="books.length < 1">No books.</p>
+</md-list>

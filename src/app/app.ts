@@ -1,17 +1,23 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { Component } from '@angular/core';
+import { HTTP_PROVIDERS } from '@angular/http';
 import { provideRouter, ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
 import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 
+import './rxjs-operators';
+
 import { IpcService } from "./services";
 
 import { FilesInDirectoryComponent, HomeComponent } from './components';
 
+import { BOOKS_PROVIDERS, BookSearchPage } from './books';
+
 const routes = [
 	{ path: 'home', component: HomeComponent, index: true },
-	{ path: 'files-in-directory', component: FilesInDirectoryComponent }
+	{ path: 'files-in-directory', component: FilesInDirectoryComponent },
+	{ path: 'books-search', component: BookSearchPage }
 ];
 
 
@@ -26,8 +32,10 @@ const routes = [
 		HomeComponent
 	],
 	providers: [
+		provideRouter(routes),
+		HTTP_PROVIDERS,
 		IpcService,
-		provideRouter(routes)
+		BOOKS_PROVIDERS,
 	],
 	styles: [
 		require('./app.scss')
