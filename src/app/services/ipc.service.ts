@@ -1,6 +1,5 @@
 import { Injectable, ApplicationRef } from "@angular/core";
 
-declare var require: any;
 const ipcRenderer = require('electron').ipcRenderer;
 
 @Injectable()

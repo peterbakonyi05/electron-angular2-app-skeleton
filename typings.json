@@ -1,4 +1,6 @@
 {
-  "name": "angular2-electron-webpack-sample",
-  "dependencies": {}
+  "name": "angular2-electron-app-skeleton",
+  "globalDependencies": {
+    "node": "registry:dt/node#6.0.0+20160619064643"
+  }
 }

@@ -1,0 +1,18 @@
+<md-sidenav-layout [start]="startMenu">
+    <md-sidenav #startMenu mode="over">
+        <button md-button (click)="startMenu.close()">
+            <i class="material-icons close">close</i>
+        </button>
+        <nav (click)="startMenu.close()">
+            <a md-button [routerLink]="['/home']">Home</a>
+            <a md-button [routerLink]="['/files-in-directory']">Files in directory</a>
+        </nav>
+    </md-sidenav>
+    <md-toolbar color="primary">
+        <button md-button (click)="startMenu.open()">
+            <i class="material-icons app-toolbar-menu">menu</i>
+        </button>
+        Electron, Angular2 app skeleton
+    </md-toolbar>
+    <router-outlet></router-outlet>
+</md-sidenav-layout>
