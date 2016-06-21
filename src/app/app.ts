@@ -51,7 +51,7 @@ const routes = [
 		}
 		
 		nav {
-			margin-top: 24px;
+			margin-top: 28px;
 		}
 		nav a {
 			display: block;
@@ -63,7 +63,7 @@ const routes = [
 			    <button md-button (click)="startMenu.close()">
 					<i class="material-icons close">close</i>
 				</button>
-				<nav>
+				<nav (click)="startMenu.close()">
 					<a md-button [routerLink]="['/home']">Home</a>
 					<a md-button [routerLink]="['/files-in-directory']">Files in directory</a>
 				</nav>
