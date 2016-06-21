@@ -1,6 +1,6 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { Component } from '@angular/core';
-import { provideRouter, ROUTER_DIRECTIVES } from '@angular/router';
+import { provideRouter, ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
 import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
@@ -79,6 +79,9 @@ const routes = [
 	`
 })
 export class App {
+	constructor(router: Router) {
+		router.navigate(['/home']);
+	}
 }
 
 bootstrap(App);
