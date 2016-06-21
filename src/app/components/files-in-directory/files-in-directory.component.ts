@@ -32,9 +32,8 @@ export class FilesInDirectoryComponent implements OnDestroy, OnInit {
 
 	ngOnInit() {
 		this.off = this.ipcService.subscribe('get-picked-directory', (e, files) => {
-			this.files = files;
+			this.files = files || [];
 		});
-
 	}
 
 	ngOnDestroy() {
