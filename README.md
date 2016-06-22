@@ -12,11 +12,9 @@
 * 1 terminal tab: `npm run electron`
 
 ## Roadmap
-* resize all images in a directory
 * add environment specific config to webpack
 * support packaging
 * add a more complex example using ngrx
-* customize native menu
 * add translations
 * add linting
 * add unit tests

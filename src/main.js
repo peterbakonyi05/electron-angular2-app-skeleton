@@ -2,7 +2,8 @@
 
 const electron = require('electron');
 const { BrowserWindow, app } = electron;
-const filesController = require('./electron/controllers/files.controller');
+const controllers = require('./electron/controllers');
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -16,9 +17,11 @@ function createWindow() {
     });
 
     // init controllers to expose "server-side" functionality
-    filesController.init(win);
+    controllers.init(win);
 
-    win.openDevTools();
+    if (isDevelopment) {
+        win.openDevTools();
+    }
 
     // and load the index.html of the app.
     win.loadURL(`file://${__dirname}/index.html`);
@@ -54,6 +57,3 @@ app.on('activate', () => {
         createWindow();
     }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
