@@ -2,7 +2,7 @@
 
 const electron = require('electron');
 const { BrowserWindow, app } = electron;
-const filesController = require('./controllers/files.controller');
+const filesController = require('./electron/controllers/files.controller');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -11,7 +11,6 @@ let win;
 function createWindow() {
     // Create the browser window.
     win = new BrowserWindow({
-        fullsreen: true,
         height: 1000,
         width: 1880
     });
