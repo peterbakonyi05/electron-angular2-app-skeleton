@@ -11,7 +11,7 @@
     "prewatch": "npm run clean",
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
     "electron": "electron src",
-    "postinstall": "typings install --global"
+    "postinstall": "typings install"
   },
   "author": "Peter Bakonyi",
   "license": "MIT",
