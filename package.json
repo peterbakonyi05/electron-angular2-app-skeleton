@@ -11,7 +11,7 @@
     "prewatch": "npm run clean",
     "watch": "cross-env NODE_ENV=development webpack --watch --progress --profile --colors --display-error-details --display-cached",
     "electron": "cross-env NODE_ENV=development electron src",
-    "postinstall": "typings install"
+    "postinstall": "typings install --global"
   },
   "author": "Peter Bakonyi",
   "license": "MIT",
