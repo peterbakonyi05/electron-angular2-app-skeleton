@@ -3,7 +3,7 @@
 const electron = require('electron');
 const { BrowserWindow, app } = electron;
 const controllers = require('./electron/controllers');
-const isDevelopment = process.env.NODE_ENV === 'development';
+const config = require('../config');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -19,7 +19,7 @@ function createWindow() {
     // init controllers to expose "server-side" functionality
     controllers.init(win);
 
-    if (isDevelopment) {
+    if (config.nodeEnv === 'development') {
         win.openDevTools();
     }
 

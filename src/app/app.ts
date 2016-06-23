@@ -8,7 +8,7 @@ import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 
 import './rxjs-operators';
 
-import { IpcService } from "./services";
+import { SHARED_PROVIDERS } from "./shared";
 
 import { FilesInDirectoryComponent } from './files-in-directory';
 import { HomeComponent } from './home';
@@ -35,7 +35,7 @@ const routes = [
 	providers: [
 		provideRouter(routes),
 		HTTP_PROVIDERS,
-		IpcService,
+		SHARED_PROVIDERS,
 		BOOKS_PROVIDERS,
 	],
 	styles: [

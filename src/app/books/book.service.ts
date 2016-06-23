@@ -3,13 +3,17 @@ import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 
+import { ConfigService } from '../shared/config.service';
+
 import { BookModel } from "./book.model";
+
 
 @Injectable()
 export class BookService {
-	private API_PATH = "https://www.googleapis.com/books/v1/volumes";
+	private API_PATH: string;
 
-	constructor(private http: Http) {
+	constructor(private http: Http, configService: ConfigService) {
+		this.API_PATH = configService.get<string>('googleBooksApi');
 	}
 
 	searchBooks(queryTitle: string): Observable<BookModel[]> {
