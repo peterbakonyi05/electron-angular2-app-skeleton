@@ -2,7 +2,7 @@ const _ = require('lodash');
 const electron = require('electron');
 const { ipcMain } = electron;
 
-const filesService = require('../services/files.service');
+const { filesService } = require('../services');
 
 module.exports = {
     init(win) {
