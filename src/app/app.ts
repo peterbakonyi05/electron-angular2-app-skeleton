@@ -1,6 +1,7 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { Component } from '@angular/core';
 import { HTTP_PROVIDERS } from '@angular/http';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { provideRouter, ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav';
@@ -33,6 +34,8 @@ const routes = [
 		HomeComponent
 	],
 	providers: [
+		disableDeprecatedForms(),
+		provideForms(),
 		provideRouter(routes),
 		HTTP_PROVIDERS,
 		SHARED_PROVIDERS,

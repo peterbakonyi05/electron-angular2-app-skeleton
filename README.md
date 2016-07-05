@@ -15,7 +15,6 @@
 * support packaging
 * add environment specific config to webpack
 * support hot module replacement during development
-* update angular2 to 2.0.0-rc.3
 * add a more complex example using ngrx
 * add translations
 * add linting
