@@ -8,8 +8,8 @@
 
 
 ## Start
-* 1 terminal tab: `npm run watch`
-* 1 terminal tab: `npm run electron`
+* `npm run build`
+* `npm start`
 
 ## Roadmap
 * support packaging
