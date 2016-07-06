@@ -1,6 +1,4 @@
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/distinctUntilChanged';
+import {Observable} from 'rxjs/Observable';
 import { Component, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
@@ -19,9 +17,9 @@ import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 export class BookSearchComponent {
 	searchControl = new FormControl();
 
-	@Output() search = this.searchControl
+	@Output() search: Observable<string> = this.searchControl
 		.valueChanges
 		.debounceTime(300)
 		.distinctUntilChanged()
-        .map((value) => value.search);
+        .map((value: any) => value.search);
 }

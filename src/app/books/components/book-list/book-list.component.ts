@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 
-import { BookModel } from '../../book.model';
+import { Book } from '../../book.model';
 
 import { BookPreviewComponent } from "../book-preview";
 
@@ -15,5 +15,5 @@ import { BookPreviewComponent } from "../book-preview";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookListComponent {
-	@Input() books: BookModel[];
+	@Input() books: Book[];
 }

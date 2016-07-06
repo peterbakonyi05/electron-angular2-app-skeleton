@@ -15,7 +15,7 @@ module.exports = {
             'reflect-metadata',
             '@angular/core'
         ],
-        'app': './src/app/app.ts'
+        'app': './src/app/main.desktop.ts'
     },
 
     output: {

@@ -1,4 +1,4 @@
-export interface BookModel {
+export interface Book {
 	id: string;
 	volumeInfo: {
 		title: string;
@@ -15,3 +15,9 @@ export interface BookModel {
 		};
 	};
 }
+
+export interface BookSearchState {
+  books: Book[];
+  isBusy: boolean;
+  query: string;
+};

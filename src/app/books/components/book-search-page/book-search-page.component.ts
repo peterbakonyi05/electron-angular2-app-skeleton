@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
-import { BookModel } from '../../book.model';
-import { BookService } from '../../book.service';
-
+import { Book } from '../../book.model';
+import { BookAction } from '../../book.action';
 import { BookListComponent } from '../book-list';
 import { BookSearchComponent } from '../book-search';
+
+import {AppState} from '../../../app.state';
 
 @Component({
 	template: require('./book-search-page.component.html'),
@@ -16,16 +19,20 @@ import { BookSearchComponent } from '../book-search';
 		BookSearchComponent
 	]
 })
-export class BookSearchPage {
-	books: BookModel[] = [];
+export class BookSearchPage implements OnInit {
+	books$: Observable<Book[]>;
 
-	constructor(private bookService: BookService) {
+	constructor(
+		private bookAction: BookAction,
+		private store: Store<AppState>
+	) {
+	}
+
+	ngOnInit() {
+		this.books$ = this.store.select((s: AppState) => s.bookSearch.books);
 	}
 
 	search(query: string) {
-		this.bookService.searchBooks(query)
-			.subscribe((books: BookModel[]) => {
-				this.books = books;
-			});
+		this.store.dispatch(this.bookAction.search(query));
 	}
 }

@@ -5,7 +5,7 @@ import { Observable } from "rxjs/Observable";
 
 import { ConfigService } from '../shared/config.service';
 
-import { BookModel } from "./book.model";
+import { Book } from "./book.model";
 
 
 @Injectable()
@@ -16,12 +16,12 @@ export class BookService {
 		this.API_PATH = configService.get<string>('googleBooksApi');
 	}
 
-	searchBooks(queryTitle: string): Observable<BookModel[]> {
+	searchBooks(queryTitle: string): Observable<Book[]> {
 		return this.http.get(`${this.API_PATH}?q=${queryTitle}`)
 			.map(res => res.json().items);
 	}
 
-	retrieveBook(volumeId: string): Observable<BookModel> {
+	retrieveBook(volumeId: string): Observable<Book> {
 		return this.http.get(`${this.API_PATH}/${volumeId}`)
 			.map(res => res.json());
 	}

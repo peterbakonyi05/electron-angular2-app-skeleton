@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 
-import { BookModel } from '../../book.model';
+import { Book } from '../../book.model';
 
 @Component({
 	selector: 'ea-book-preview',
@@ -16,7 +16,7 @@ import { BookModel } from '../../book.model';
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookPreviewComponent {
-	@Input() book: BookModel;
+	@Input() book: Book;
 
 	get id() {
 		return this.book.id;
