@@ -3,9 +3,12 @@
 ## Features
 * Angular2, Material design front end
 * Advanced webpack configuration
-* Inter Process Communication (communication between main and renderer process)
-* Native system dialog example
-
+* Example for the common problems
+    * Config handling
+    * Translation
+    * Routing
+    * State handling with redux pattern using @ngrx
+    * Inter Process Communication (communication between main and renderer process)
 
 ## Start
 * `npm run build`
@@ -14,9 +17,8 @@
 ## Roadmap
 * support packaging
 * add environment specific config to webpack
+* use TypeScript on the renderer process as well
 * support hot module replacement during development
-* add a more complex example using ngrx
-* add translations
 * add linting
 * add unit tests
 

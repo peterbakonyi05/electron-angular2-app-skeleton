@@ -7,6 +7,7 @@ import { compose } from "@ngrx/core/compose";
 import { storeLogger } from "ngrx-store-logger";
 import { provideStore, combineReducers } from "@ngrx/store";
 import { runEffects } from "@ngrx/effects";
+import { TRANSLATE_PROVIDERS } from 'ng2-translate/ng2-translate';
 
 import { SHARED_PROVIDERS } from "./shared";
 import { BOOKS_EFFECTS, BOOKS_REDUCERS, BOOKS_PROVIDERS } from './books';
@@ -19,6 +20,7 @@ const appReducer = Object.assign({},
 
 bootstrap(App, [
   HTTP_PROVIDERS,
+  TRANSLATE_PROVIDERS,
   SHARED_PROVIDERS,
   BOOKS_PROVIDERS,
   disableDeprecatedForms(),
