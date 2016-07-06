@@ -16,4 +16,5 @@ import 'rxjs/add/operator/mapTo';
 import 'rxjs/add/operator/switch';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/switchMapTo';
+import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/toArray';

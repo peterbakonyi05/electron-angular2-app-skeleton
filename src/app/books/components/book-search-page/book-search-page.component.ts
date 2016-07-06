@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 
 import { Book } from '../../book.model';
 import { BookAction } from '../../book.action';
@@ -21,6 +21,7 @@ import {AppState} from '../../../app.state';
 })
 export class BookSearchPage implements OnInit {
 	books$: Observable<Book[]>;
+	query$: Observable<string>;
 
 	constructor(
 		private bookAction: BookAction,
@@ -29,6 +30,9 @@ export class BookSearchPage implements OnInit {
 	}
 
 	ngOnInit() {
+		this.query$ = this.store
+			.select((s: AppState) => s.bookSearch.query)
+			.take(1);
 		this.books$ = this.store.select((s: AppState) => s.bookSearch.books);
 	}
 

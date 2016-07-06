@@ -14,20 +14,20 @@ import { BOOKS_EFFECTS, BOOKS_REDUCERS, BOOKS_PROVIDERS } from './books';
 import { App } from './app';
 
 const appReducer = Object.assign({},
-	BOOKS_REDUCERS
+  BOOKS_REDUCERS
 );
 
 bootstrap(App, [
-    HTTP_PROVIDERS,
-    SHARED_PROVIDERS,
-    BOOKS_PROVIDERS,
-    disableDeprecatedForms(),
-    provideForms(),
-    runEffects(BOOKS_EFFECTS),
-    provideStore(
-		compose(
-			storeLogger(),
-			combineReducers
-		)(appReducer)
-	),
+  HTTP_PROVIDERS,
+  SHARED_PROVIDERS,
+  BOOKS_PROVIDERS,
+  disableDeprecatedForms(),
+  provideForms(),
+  provideStore(
+    compose(
+      storeLogger(),
+      combineReducers
+    )(appReducer)
+  ),
+  runEffects(BOOKS_EFFECTS)
 ]);

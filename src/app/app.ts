@@ -9,7 +9,7 @@ import { HomeComponent } from './home';
 import { BookSearchPage } from './books';
 
 const routes = [
-	{ path: 'home', component: HomeComponent, index: true },
+	{ path: 'home', component: HomeComponent },
 	{ path: 'files-in-directory', component: FilesInDirectoryComponent },
 	{ path: 'books-search', component: BookSearchPage }
 ];
