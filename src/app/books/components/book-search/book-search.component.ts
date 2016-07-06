@@ -3,8 +3,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/distinctUntilChanged';
 import { Component, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
 	selector: 'ea-book-search',
@@ -12,17 +10,16 @@ import { Observable } from 'rxjs/Observable';
 		REACTIVE_FORM_DIRECTIVES
 	],
 	template: `
-		<input placeholder="Book title, author" [formControl]="searchControl" type="text">
+		<input placeholder="Book title, author" [formControl]="searchControl" type="search">
 	`,
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookSearchComponent {
-	searchControl = new FormControl('');
-
-	keyup$ = new Subject<KeyboardEvent>();
+	searchControl = new FormControl();
 
 	@Output() search = this.searchControl
 		.valueChanges
 		.debounceTime(300)
+		.distinctUntilChanged()
         .map((value) => value.search);
 }

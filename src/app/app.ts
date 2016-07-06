@@ -34,8 +34,6 @@ const routes = [
 		HomeComponent
 	],
 	providers: [
-		disableDeprecatedForms(),
-		provideForms(),
 		provideRouter(routes),
 		HTTP_PROVIDERS,
 		SHARED_PROVIDERS,
@@ -52,4 +50,7 @@ export class App {
 	}
 }
 
-bootstrap(App);
+bootstrap(App, [
+	disableDeprecatedForms(),
+	provideForms()
+]);
