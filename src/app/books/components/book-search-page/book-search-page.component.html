@@ -3,6 +3,9 @@
     <md-card-title>Search books in Google Books</md-card-title>
     <md-card-content>
         <ea-book-search [query]="query$ | async" (search)="search($event)"></ea-book-search>
-        <ea-book-list [books]="books$ | async"></ea-book-list>
+        <div *ngIf="isBusy$ | async">
+            <md-spinner color="primary"></md-spinner>
+        </div>
+        <ea-book-list *ngIf="!(isBusy$ | async)" [books]="books$ | async"></ea-book-list>
     </md-card-content>
 </md-card>
