@@ -27,7 +27,19 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.ts', '.js', '.json', '.css', '.html']
+        extensions: ['', '.ts', '.js', '.json', '.css', '.html'],
+        alias: {
+            '@angular/common': path.resolve('./node_modules/@angular/common'),
+            '@angular/compiler': path.resolve('./node_modules/@angular/compiler'),
+            '@angular/core': path.resolve('./node_modules/@angular/core'),
+            '@angular/http': path.resolve('./node_modules/@angular/http'),
+            '@angular/platform-browser': path.resolve('./node_modules/@angular/platform-browser'),
+            '@angular/platform-browser-dynamic': path.resolve('./node_modules/@angular/platform-browser-dynamic'),
+            '@ngrx/core': path.resolve('./node_modules/@ngrx/core'),
+            '@ngrx/effects': path.resolve('./node_modules/@ngrx/effects'),
+            '@ngrx/store': path.resolve('./node_modules/@ngrx/store'),
+            'rxjs': path.resolve('./node_modules/rxjs'),
+        }
     },
 
     module: {
